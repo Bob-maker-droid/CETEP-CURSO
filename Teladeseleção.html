@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cursos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .info-box {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.9);
+      width: 150vw;
+      height: 150vh;
+      display: none;
+      justify-content: flex-start;
+      align-items: flex-start;
+      color: white;
+      z-index: 10;
+      padding: 20px;
+    }
+
+    #info-text {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-size: 24px;
+      color: #f1f1f1;
+      max-width: 600px;
+      background-color: rgb(151, 146, 146);
+      box-shadow: #000 20px 20px 20px;
+      padding: 20px;
+      line-height: 1.6;
+      border-radius: 8px;
+
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+  @keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+#bahia-logo {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: auto;
+  z-index: 50;
+  animation: fadeSlideDown 4s ease forwards;
+}
+
+
+
+    #info-text.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .menu {
+      position: relative;
+      z-index: 20;
+    }
+
+    .menu-button,
+    .menu-item {
+      background: #000;
+      color: white;
+      border-radius: 70%;
+      width: 140px;
+      height: 140px;
+      text-align: center;
+      line-height: 130px;
+      font-size: 35px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      cursor: pointer;
+      opacity: 50%;
+    }
+
+    .menu-item {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .menu.open .menu-item {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .menu.open .item-1 { transform: translate(-270px, -20px); background: #ff9900; opacity: 90%; }
+    .menu.open .item-2 { transform: translate(240px, -20px); background: #0066ff; opacity: 90%; }
+    .menu.open .item-3 { transform: translate(60px, 270px); background: #e70000; opacity: 90%; }
+    .menu.open .item-4 { transform: translate(-190px, 270px); background: #01b628; opacity: 90%; }
+    .menu.open .item-5 { transform: translate(30px, -270px); background: #b3ff00; opacity: 90%; }
+    .menu.open .item-6 { transform: translate(-240px, -270px); background: #00c3ff; opacity: 90%; }
+    .menu.open .item-7 { transform: translate(260px, -200px); background: #e24b5f; opacity: 90%; }
+    
+    .hamburger-icon {
+      transition: transform 1.5s ease;
+    }
+
+    .menu.open .hamburger-icon {
+      transform: rotate(360deg);
+    }
+
+    .transition-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: black;
+  border-radius: 50%;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 3s ease, height 3s ease;
+  pointer-events: none;
+}
+.transition-overlay.expand {
+  width: 50000px;
+  height: 50000px;
+}
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.tooltip {
+  font-size: 30px; 
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: fixed;
+  top: 100%;
+  left: 100%;
+  transform: translateX(-50%);
+  background-color: #b89f9f1a;
+  color: #5f6d79a1;
+  padding: 15px 10px;
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  z-index: 2000;
+}
+
+
+.tooltip-container:hover .tooltip {
+  opacity: 1;
+}
+
+
+  </style>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=0.67">
+<body>
+
+
+  <div class="info-box" id="info-box">
+    <p id="info-text">Texto sobre o curso</p>
+  </div>
+
+  <img id="bahia-logo" src="IMG1/Bahia.png" alt="Logo da Bahia">
+
+  <div class="transition-overlay" id="transition-overlay"></div>
+
+
+
+  <nav class="menu" id="menu">
+    <div class="menu-button" id="menu-button">
+      <i class="fa-solid fa-list hamburger-icon" id="hamburger-icon"></i>
+    </div>
+    <div class="tooltip-container">
+    <a href="EDIFICAÇOES.html" class="menu-item item-1"><samp class="tooltip">Edificacoes
+    </samp><i class="fa-solid fa-house fa-bounce"></i>
+  </a>
+    </div> 
+    <div class="tooltip-container">
+    <a href="ANALISES.html" class="menu-item item-2"><span class="tooltip">Analises</span>
+      <i class="fa-solid fa-hospital fa-bounce"></i>
+    </a>
+     </div>
+     <div class="tooltip-container">
+    <a href="INFORMATICA.html" class="menu-item item-3"><span class="tooltip">Informatica</span>
+      <i class="fa-solid fa-computer fa-bounce"></i>
+    </a>
+    </div>
+     <div class="tooltip-container">
+    <a href="NUTRICAO.html" class="menu-item item-4"><span class="tooltip">Nutricao</span>
+      <i class="fa-solid fa-burger fa-bounce"></i></a>
+    </div>
+     <div class="tooltip-container">
+    <a href="AGRO-ECOLOGIA.html" class="menu-item item-5"><span class="tooltip">Agro-ecologia</span>
+      <i class="fa-solid fa-seedling fa-bounce"></i></a>
+    </div>
+     <div class="tooltip-container">
+    <a href="QUIMICA.html" class="menu-item item-6"><span class="tooltip">Quimica</span>
+      <i class="fa-solid fa-ruler-vertical fa-shake"></i></a>
+    </div>
+     <div class="tooltip-container">
+    <a href="Informaçoes.html" class="menu-item item-7"><span class="tooltip">Horario de aulas</span>
+      <i class="fa-regular fa-file fa-bounce"></i></a>
+    </div>
+  </nav>
+
+  <script>
+
+    const menu = document.getElementById('menu');
+    const button = document.getElementById('menu-button');
+    const infoBox = document.getElementById('info-box');
+    const infoText = document.getElementById('info-text');
+
+    button.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.menu-item').forEach((item, index) => {
+      item.addEventListener('mouseenter', () => {
+        infoText.textContent = dados[index].texto;
+        infoText.classList.add('show');
+        infoBox.style.display = 'flex';
+      });
+
+      item.addEventListener('mouseleave', () => {
+        infoText.classList.remove('show');
+        setTimeout(() => {
+          infoBox.style.display = 'none';
+        }, 400);
+      });
+    });
+   
+  const overlay = document.getElementById('transition-overlay');
+
+  
+  document.querySelectorAll('.menu-item').forEach((item, index) => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault(); 
+
+      overlay.style.background = window.getComputedStyle(item).backgroundColor; 
+      overlay.classList.add('expand');
+
+      setTimeout(() => {
+        window.location.href = item.href || "#";
+      }, 700);
+    });
+  });
+</script>
+</body>
+</html>

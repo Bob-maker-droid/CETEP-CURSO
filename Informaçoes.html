@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Informações</title>
+  <button onclick="irParaSelecao()">Tela de Seleção</button>
+<script src="scripts.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: #333;
+      border-bottom: 2px solid #555;
+      padding-bottom: 5px;
+    }
+
+    img {
+      transform: translate(500px 0px) ;
+      width: 500px;
+      height: 500px;
+      border: 3px solid #444;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      margin: 15px 15;
+      display: block;
+    }
+
+    .img-grande {
+      transform:translate(800px, 900px) scale(3.5);
+      width: 850px;
+      z-index: 2000;
+      position:relative;
+    }
+    button {
+  background-color: #da749b; 
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #971d56;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+  </style>
+</head>
+<body>
+
+  <h1>Horários das Aulas e outros</h1>
+
+  <h2>Geral</h2>
+  <img src="Img/Horarios.jpg" onclick="aumentarImagem(this)" alt="Horários gerais">
+
+  <h2>Matutino</h2>
+
+  <img src="Img/Maturino (1).jpg" onclick="aumentarImagem(this)" alt="Matutino 1">
+  <img src="Img/Maturino (2).jpg" onclick="aumentarImagem(this)" alt="Matutino 2">
+  <img src="Img/Maturino (3).jpg" onclick="aumentarImagem(this)" alt="Matutino 3">
+  <img src="Img/Maturino (4).jpg" onclick="aumentarImagem(this)" alt="Matutino 4">
+  <img src="Img/Maturino (5).jpg" onclick="aumentarImagem(this)" alt="Matutino 5">
+  <img src="Img/Maturino (6).jpg" onclick="aumentarImagem(this)" alt="Matutino 6">
+  <img src="Img/Maturino (7).jpg" onclick="aumentarImagem(this)" alt="Matutino 7">
+
+  <h2>Vespertino</h2>
+  
+  <img src="Img/Vespertino (1).jpg" onclick="aumentarImagem(this)" alt="Vespertino 1">
+  <img src="Img/Vespertino (2).jpg" onclick="aumentarImagem(this)" alt="Vespertino 2">
+  <img src="Img/Vespertino (3).jpg" onclick="aumentarImagem(this)" alt="Vespertino 3">
+
+  <h2>Noturno</h2>
+  <img src="Img/Noturno (1).jpg" onclick="aumentarImagem(this)" alt="Noturno 1">
+  <img src="Img/Noturno (2).jpg" onclick="aumentarImagem(this)" alt="Noturno 2">
+  <img src="Img/Noturno (3).jpg" onclick="aumentarImagem(this)" alt="Noturno 3">
+  <img src="Img/Noturno (4).jpg" onclick="aumentarImagem(this)" alt="Noturno 4">
+  <img src="Img/Noturno (5).jpg" onclick="aumentarImagem(this)" alt="Noturno 5">
+  <img src="Img/Noturno (6).jpg" onclick="aumentarImagem(this)" alt="Noturno 6">
+  <img src="Img/Noturno (7).jpg" onclick="aumentarImagem(this)" alt="Noturno 7">
+  <img src="Img/Noturno (8).jpg" onclick="aumentarImagem(this)" alt="Noturno 8">
+
+  <script>
+    function aumentarImagem(imagem) {
+      imagem.classList.toggle("img-grande");
+    }
+    const imagem = document.getElementById("imagem");
+  imagem.style.left = "300px"; 
+  imagem.style.top = "200px";  
+  </script>
+
+</body>
+</html>
